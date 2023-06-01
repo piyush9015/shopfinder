@@ -1,7 +1,7 @@
 # shopfinder
 Module to manage the store
 
-****Steps to install module:
+**Steps to install module:
 
 ```xml
 composer config repositories.shopfinder-module vcs https://github.com/manish-ranjann/shopfinder.git
