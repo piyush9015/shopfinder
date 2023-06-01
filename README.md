@@ -1,6 +1,17 @@
 # shopfinder
 Module to manage the store
 
+****Steps to install module:
+
+composer config repositories.shopfinder-module vcs https://github.com/manish-ranjann/shopfinder.git
+composer require vendor/module-shopfinder:dev-main
+composer update vendor/module-shopfinder
+php bin/magento setup:static-content:deploy 
+php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+
+
+
 **GraphQL EndPoints:**
 
 **1. Shop List **
