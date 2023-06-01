@@ -3,16 +3,6 @@
     "description": "Shopfinder Module",
     "type": "magento2-module",
     "license": "GPL-3.0",
-    "authors": [
-        {
-            "name": "Mage2Gen",
-            "email": "info@mage2gen.com"
-        },
-        {
-            "name": "Manish Ranjan",
-            "email": "manish24online@gmail.com"
-        }
-    ],
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
