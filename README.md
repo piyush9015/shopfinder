@@ -4,9 +4,8 @@ Module to manage the store
 **Steps to install module:
 
 ```xml
-composer config repositories.shopfinder-module vcs https://github.com/manish-ranjann/shopfinder.git
+composer config repositories.shopfinder-module vcs https://github.com/piyush9015/shopfinder.git
 composer require vendor/module-shopfinder:dev-main
-composer update vendor/module-shopfinder
 php bin/magento setup:static-content:deploy 
 php bin/magento setup:upgrade
 php bin/magento setup:di:compile
