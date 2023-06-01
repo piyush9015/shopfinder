@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">vendor_shopfinder_shopfinder_form.shopfinder_form_data_source</item>
+		</item>
+		<item name="label" xsi:type="string" translate="true">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button name="back" class="Vendor\Shopfinder\Block\Adminhtml\Shopfinder\Edit\BackButton"/>
+			<button name="delete" class="Vendor\Shopfinder\Block\Adminhtml\Shopfinder\Edit\DeleteButton"/>
+			<button name="save" class="Vendor\Shopfinder\Block\Adminhtml\Shopfinder\Edit\SaveButton"/>
+			<button name="save_and_continue" class="Vendor\Shopfinder\Block\Adminhtml\Shopfinder\Edit\SaveAndContinueButton"/>
+		</buttons>
+		<namespace>vendor_shopfinder_shopfinder_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>vendor_shopfinder_shopfinder_form.shopfinder_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="shopfinder_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider name="shopfinder_form_data_source" class="Vendor\Shopfinder\Model\Shopfinder\DataProvider">
+			<settings>
+				<requestFieldName>shopfinder_id</requestFieldName>
+				<primaryFieldName>shopfinder_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>General</label>
+		</settings>
+		<field name="shopname" formElement="input" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Shopfinder</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">shopname</label>
+				<dataScope>shopname</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="identifier" formElement="input" sortOrder="20">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Shopfinder</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">identifier</label>
+				<dataScope>identifier</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+        <field name="country">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Directory\Model\Config\Source\Country</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Country</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">Timeslot</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/country</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+		<field name="image">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="dataType" xsi:type="string">string</item>
+					<item name="label" xsi:type="string" translate="true">Shop Image</item>
+					<item name="visible" xsi:type="boolean">true</item>
+					<item name="allowedExtensions" xsi:type="string">jpg jpeg png</item>
+					<item name="maxFileSize" xsi:type="number">2097152</item>
+					<item name="formElement" xsi:type="string">imageUploader</item>
+					<item name="previewTmpl" xsi:type="string">Magento_Catalog/image-preview</item>
+					<item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+					<item name="dataScope" xsi:type="string">image</item>
+					<item name="sortOrder" xsi:type="number">40</item>
+					<item name="uploaderConfig" xsi:type="array">
+						<item name="url" xsi:type="url" path="vendor_shopfinder/shopfinder/upload">
+							<param name="target_element_id">image</param>
+							<param name="type">image</param>
+						</item>
+					</item>
+					<item name="validation" xsi:type="array">
+						<item name="required-entry" xsi:type="boolean">false</item>
+					</item>
+				</item>
+			</argument>
+		</field>
+		<field name="longitude" formElement="input" sortOrder="50">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Shopfinder</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">longitude</label>
+				<dataScope>longitude</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="latitude" formElement="input" sortOrder="60">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Shopfinder</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">latitude</label>
+				<dataScope>latitude</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+	</fieldset>
+</form>

@@ -1,0 +1,42 @@
+type Query {
+    shopList: [shopData] @resolver(class: "Vendor\\Shopfinder\\Model\\Resolver\\ShopList")
+    @doc(description: "The query returns the shop list")
+
+    shopListById(
+        id: Int! @doc(description: "The ID of the shop.")
+    )
+    : shopData @resolver(class: "Vendor\\Shopfinder\\Model\\Resolver\\ShopListById")
+    @doc(description: "The query returns the shop data according to passed id")
+}
+
+type Mutation {
+    updateShop (
+        id: Int!
+        input: ShopInput
+    ): shopData @resolver(class: "Vendor\\Shopfinder\\Model\\Resolver\\UpdateShop")
+}
+
+input ShopInput {
+    shopname: String @doc(description: "Shop Name")
+    identifier: String @doc(description: "Shop Indentifier")
+    country: String @doc(description: "Country")
+    image: String @doc(description: "Shop Image")
+    longitude: String @doc(description: "Longitute of the shop")
+    latitude: String @doc(description: "Latitude of the shop")
+    store: String @doc(description: "Store ID")
+    is_active: Boolean @doc(description: "Store Status Flag")
+}
+
+type shopData {
+    shopfinder_id: Int
+    shopname: String @doc(description: "Shop Name")
+    identifier: String @doc(description: "Shop Indentifier")
+    country: String @doc(description: "Country")
+    image: String @doc(description: "Shop Image")
+    longitude: String @doc(description: "Longitute of the shop")
+    latitude: String @doc(description: "Latitude of the shop")
+    store: String @doc(description: "Store ID")
+    is_active: Boolean @doc(description: "Store Status Flag")
+    created_at: String
+    updated_at: String
+}

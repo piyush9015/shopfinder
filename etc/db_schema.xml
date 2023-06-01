@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="shopfinder" resource="default" engine="innodb" comment="Shopfinder Table">
+		<column xsi:type="int" name="shopfinder_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="shopfinder_id"/>
+		</constraint>
+		<column name="shopname" nullable="false" xsi:type="varchar" comment="shopname" length="255"/>
+        <column name="identifier" nullable="false" xsi:type="varchar" comment="identifier" length="255"/>
+		<column name="country" nullable="false" xsi:type="varchar" comment="country" length="255"/>
+		<column name="image" nullable="true" xsi:type="text" comment="image"/>
+		<column name="longitude" nullable="true" xsi:type="varchar" comment="longitude" length="255"/>
+		<column name="latitude" nullable="true" xsi:type="varchar" comment="latitude" length="255"/>
+        <column xsi:type="smallint" name="is_active" unsigned="true" nullable="false" identity="false"
+                default="1" comment="Is Active"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="true" identity="false"
+                default="0" comment="Store ID"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Updated At"/>
+        <index referenceId="VENDOR_SHOPFINDER_SHOPFINDER_SHOPNAME" indexType="btree">
+            <column name="shopname"/>
+        </index>
+        <index referenceId="VENDOR_SHOPFINDER_SHOPFINDER_IDENTIFIER" indexType="btree">
+            <column name="identifier"/>
+        </index>
+        <constraint xsi:type="foreign" referenceId="SHOPFINDER_STORE_ID_STORE_STORE_ID" table="shopfinder"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="SET NULL"/>
+	</table>
+</schema>
